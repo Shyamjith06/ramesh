@@ -1,0 +1,34 @@
+  457  cd ~/tmp
+  458  wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.24/bin/apache-tomcat-10.1.24.tar.gz
+  459  wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.25/bin/apache-tomcat-10.1.25.tar.gz
+  460  wget https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.24/bin/apache-tomcat-10.1.24.tar.gz
+  461  sudo tar -xzvf apache-tomcat-10*tar.gz -C /opt/tomcat --strip-components=1
+  462  sudo chown -R tomcat:tomcat /opt/tomcat/
+  463  sudo chmod -R u+x /opt/tomcat/bin
+  464  sudo vi /opt/tomcat/conf/tomcat-users.xml
+  465  sudo passwd tomcat
+  466  sudo vi /opt/tomcat/conf/tomcat-users.xml
+  467  ls
+  468  ls /opt/tomcat/
+  469  sudo ls /opt/tomcat/
+  470  cd ..
+  471  cd /etc/systemd/system
+  472  sudo vi sudo nano 
+  473  ls
+  474  rm sudo 
+  475  ls
+  476  cat sudo
+  477  rm -rf sudo
+  478  sudo rm -rf sudo
+  479  sudo vi tomcat.service
+  480  sudo systemctl daemon-reload
+  481  sudo systemctl start tomcat
+  482  sudo systemctl stats tomcat
+  483  sudo systemctl status tomcat
+  484  sudo systemctl enable tomcat
+  485  cd
+  486  ls
+  487  aws s3 cp s3://debitcard-artifact/debitcardcustomer-1.0.0-55f3f2a.war ./
+  488  ls
+  489  sudo systemctl stop tomcat
+  490  history

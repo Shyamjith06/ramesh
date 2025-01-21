@@ -1,0 +1,14 @@
+sudo apt-add-repository "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+
+
+# Create an S3 bucket
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-s3-bucket-ramesh1-${terraform.workspace}"  # Choose a globally unique name for your S3 bucket
+  acl    = "private"                    # Set the access control list (ACL) to private
+  
+  # Optionally, you can define additional configurations for the bucket
+  versioning {
+    enabled = true  # Enable versioning for the S3 bucket
+  }
+}
+
