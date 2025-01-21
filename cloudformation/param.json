@@ -1,0 +1,19 @@
+[
+  {
+    "ParameterKey": "instanceType",
+    "ParameterValue": "t2.medium"
+  },
+  {
+    "ParameterKey": "amiId",
+    "ParameterValue": "ami-036841078a4b68e14"
+  },
+  {
+    "ParameterKey": "keyPair",
+    "ParameterValue": "terraform"
+  },
+  {
+    "ParameterKey": "SubnetId",
+    "ParameterValue": "subnet-007acf283d583efe4"
+  }
+]
+

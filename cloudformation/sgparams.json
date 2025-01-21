@@ -1,0 +1,10 @@
+[
+    {
+    "ParameterKey": "env",
+    "ParameterValue": "dev"
+    },
+    {
+        "ParameterKey": "Vpc",
+        "ParameterValue": "vpc-0c8009988dd9825ea"
+        } 
+]

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: taint
+  namespace: ramtest
+  labels: 
+    app: test
+    env: qa
+spec:
+  containers:
+  - name: taint-nginx
+    image: nginx
+    ports: 
+      - containerPort: 80
+  nodeName: ip-10-55-29-49.eu-west-1.compute.internal

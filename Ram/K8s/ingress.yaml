@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: debitcard-ingress
+  namespace: ramtest
+  labels:
+    app: debitcard
+    env: stage
+  annotations:
+    # AWS ALB Ingress Controller annotations
+    kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/scheme: "internet-facing"  # ALB is internet-facing
+    alb.ingress.kubernetes.io/target-type: ip           # Use IP as the target type
+    alb.ingress.kubernetes.io/listener-ports: '80'      # The port to expose (HTTP port)
+spec:
+  rules:
+    # - host:   # Example: your-app.example.com
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: debitcard  # The name of the service
+                port:
+                  number: 80 # The port exposed by the service

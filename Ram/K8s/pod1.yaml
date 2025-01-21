@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: debitcard
+  labels:
+    app: debitcard
+    env: stage
+  namespace: ramtest
+spec:
+  containers:
+    - name: my-node-container
+      image: nginx
+      ports:
+        - containerPort: 80

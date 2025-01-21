@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pod
+  labels: 
+    app: demo
+    env: dev
+  namespace: shyam
+spec:
+  containers:
+  - image: nginx
+    name: mypod

@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "sg with cfn"
+Parameters:
+  env:
+    Type: String
+  Vpc:
+    Type: String
+Resources:
+  sggroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Sub "sg-${env}"
+      VpcId: !Ref Vpc
+      SecurityGroupIngress:
+      - IpProtocol: TCP
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+  
+Outputs:
+  sgid:
+    Value: !GetAtt sggroup.GroupId
+    Export:
+      Name: sgid

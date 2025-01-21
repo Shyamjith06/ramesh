@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-deployment
+  labels:
+    app: demo
+    env: dev
+  namespace: shyam
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      name: demo-pod
+      labels:
+        app: demo
+    spec:
+      containers:
+      - name: nginx
+        image: mysql
+        ports:
+          - containerPort: 80

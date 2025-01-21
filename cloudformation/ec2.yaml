@@ -1,0 +1,42 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: "ece using cfn template"
+Parameters:
+  instanceType:
+    Type: String
+  amiId:
+    Type: String
+  keyPair:
+    Type: String
+  # sgid:
+  #   Type: String
+  SubnetId:
+    Type: String
+Resources:
+  ec2instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref instanceType
+      ImageId: !Ref amiId
+      KeyName: !Ref keyPair
+      SubnetId: !Ref SubnetId
+      SecurityGroupIds:
+        - !ImportValue sgid
+      Tags:
+        - Key: "Name"
+          Value: "MyEC2Instance"
+      BlockDeviceMappings:
+        - DeviceName: "/dev/xvda"
+          Ebs:
+            VolumeSize: 8
+            VolumeType: gp3
+            DeleteOnTermination: true
+
+Outputs:
+  instaneID:
+    Value: !Ref ec2instance
+    Export:
+      Name: "InstaneIdentifier"
+  InstancePublicIP:
+    Description: "The public IP address of the EC2 instance"
+    Value: !GetAtt ec2instance.PublicIp

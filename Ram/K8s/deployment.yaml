@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debitcard
+  labels:
+    app: debitcard
+    env: stage
+  namespace: ramtest
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      app: debitcard
+  template:
+    metadata: 
+      name: debitcard
+      labels:
+        app: debitcard
+        env: stage
+    spec:
+      containers:
+        - name: my-node-container
+          image: nginx
+          ports:
+            - containerPort: 80
+    
+
