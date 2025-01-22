@@ -1,0 +1,7 @@
+name: myApp
+environment: stage
+namespaces: stage
+replicas: 3
+deploy: 
+  enabled: true
+service.port: 80

@@ -1,0 +1,7 @@
+{{- if .Values.deploy2.enabled -}}
+apiVersion: apps/v1
+kind: Deployement
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.environment }}
+  namespace: {{ .Values.namespace }}
+  

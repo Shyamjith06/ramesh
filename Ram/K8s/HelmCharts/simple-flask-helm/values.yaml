@@ -1,0 +1,12 @@
+flaskApp:
+  name: flask-app
+  image:
+    repository: rameshnidode/flask-app
+    tag: latest
+  replicaCount: 2
+
+service:
+  type: LoadBalancer
+  port: 3000
+
+# Configuration file where you define settings for the app (like Docker image,replicas, etc.).

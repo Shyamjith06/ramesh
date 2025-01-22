@@ -1,0 +1,7 @@
+environment: dev
+namespace: dev
+replicas: 3
+deploy:
+  enabled: false
+deploy2:
+  enabled: true
