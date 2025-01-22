@@ -1,0 +1,10 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata: 
+  name: debitcard-apdb
+  namespace: ramtest
+spec:
+  minAvailable: 2 # At least 2 pods must always be running
+  selector:
+    matchLabels:
+      app: debitcard

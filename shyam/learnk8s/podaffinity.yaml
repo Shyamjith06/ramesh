@@ -1,9 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deploy
-  labels:
-    app: demo
+  name: demo
   namespace: shyam
 spec:
   replicas: 3
@@ -16,14 +14,15 @@ spec:
         app: demo
     spec:
       affinity:
-        nodeAffinity:
+        podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
+          - labelSelector:
+              matchExpressions:
               - key: app
                 operator: In
                 values:
-                - demo
+                  - demo
+            topologyKey: opology.kubernetes.io/zone
       containers:
-      - name: yoyo
+      - name: nginx
         image: nginx

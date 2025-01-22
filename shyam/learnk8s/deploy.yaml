@@ -19,6 +19,16 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: mysql
+        image: nginx
         ports:
           - containerPort: 80
+        env:
+        - name: "USERNAME"
+          valueFrom:
+            configMapKeyRef:
+              name: demo-config
+              key: username
+      volumes:
+        - name: my-volume
+          persistentVolumeClaim:
+            claimName: mypvc
